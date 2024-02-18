@@ -1,20 +1,26 @@
-import Home from "./pages/Home";
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ClippedDrawer, { Navbar } from "./components/Navbar/PermanentDrawerLeft";
-import { Margin } from "@mui/icons-material";
-import PermanentDrawerLeft from "./components/Navbar/PermanentDrawerLeft";
-import { ImageList } from "@mui/material";
-import Learning from "./pages/Learning";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Learning from './pages/Learning';
+import People from './pages/People';
+import './App.css';
+
+
 
 function App() {
   return (
-    <div className="App">
-     <Learning/>
+    <Router>
+      <Routes>
+      <Route path="/" element={<Home />} />
 
-      <PermanentDrawerLeft />
-
-    </div>
+        <Route path="/home" element={<Home />} />
+        <Route path="/learning" element={<Learning />} />
+        <Route path="/people" element={<People/>} />
+     
+        {/* Add more routes as needed */}
+      </Routes>
+    </Router>
   );
 }
+
 export default App;

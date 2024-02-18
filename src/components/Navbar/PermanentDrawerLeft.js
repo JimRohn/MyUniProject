@@ -4,7 +4,6 @@ import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -19,11 +18,11 @@ import { Link } from "react-router-dom";
 const drawerWidth = 240;
 
 const listItems = [
-  { text: "Home", icon: <HomeIcon /> },
-  { text: "People", icon: <PeopleIcon /> },
-  { text: "Matters", icon: <WorkIcon /> },
-  { text: "Events", icon: <CalendarMonthIcon /> },
-  { text: "Learning", icon: <SchoolIcon /> },
+  { text: "Home", icon: <HomeIcon /> , path: "/home"},
+  { text: "People", icon: <PeopleIcon />, path: "/people"},
+  { text: "Matters", icon: <WorkIcon />, path: "/matters"},
+  { text: "Events", icon: <CalendarMonthIcon />, path: "/events"},
+  { text: "Learning", icon: <SchoolIcon />, path: "/learning"},
 ];
 
 export default function PermanentDrawerLeft() {
@@ -49,10 +48,12 @@ export default function PermanentDrawerLeft() {
         <List>
           {listItems.map((item) => (
             <ListItem key={item.text} disablePadding>
+            <Link to={item.path} style={{textDecoration:'none', color:'inherit'}}>
               <ListItemButton>
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
               </ListItemButton>
+            </Link>
             </ListItem>
           ))}
         </List>

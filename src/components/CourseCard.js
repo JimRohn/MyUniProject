@@ -10,7 +10,7 @@ const CourseCard = ({ course }) => {
   return (
     <Grid item xs={4}>
       <Paper elevation={3}>
-        <img src={course.image} alt="image course" className="img" />
+        <img src={course.image} alt="" className="img" />
         <Box paddingx={1}>
           <Typography variant={"subtitle1"} component={"h2"}></Typography>
         </Box>
